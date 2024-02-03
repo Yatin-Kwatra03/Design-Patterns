@@ -1,0 +1,1 @@
+You have to build a book shop simulator which will return books for the given type.
