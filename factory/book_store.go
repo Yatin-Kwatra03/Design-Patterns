@@ -2,8 +2,8 @@ package factory
 
 import (
 	"errors"
-	"github.com/epifi/gamma/pkg/idgen"
-	"strconv"
+	"math/rand"
+	"time"
 )
 
 type BookStore struct {
@@ -29,24 +29,19 @@ type BookStore struct {
 	// Here major requirement was to fetch book for a given book type, so added a map
 	// from book type to book .
 	BookShelf map[BookType][]*Book
-
-	// unique number generator
-	NumberIdGen idgen.NumberIDGenerator
 }
 
 func NewBookStore(name, location, phoneNumber, webUrlForShop string) (*BookStore, error) {
-	source := idgen.NewCryptoSeededSource()
-	runeNumberIdGenerator := idgen.NewNumberIdGenerator(source)
 	bookShelf := make(map[BookType][]*Book)
+	rand.Seed(time.Now().UnixNano())
 
 	return &BookStore{
-		StoreId:       strconv.Itoa(int(runeNumberIdGenerator.GenID(10))),
+		StoreId:       string(rand.Intn(10000000)),
 		Name:          name,
 		Location:      location,
 		PhoneNumber:   phoneNumber,
 		WebUrlForShop: webUrlForShop,
 		BookShelf:     bookShelf,
-		NumberIdGen:   runeNumberIdGenerator,
 	}, nil
 }
 
@@ -55,11 +50,11 @@ func (s *BookStore) AddBookToStore(book *Book) (*Book, error) {
 		return nil, errors.New("invalid book object passed in request")
 	}
 
-	book.Id = strconv.Itoa(int(s.NumberIdGen.GenID(10)))
+	rand.Seed(time.Now().UnixNano())
+	book.Id = string(rand.Intn(10000000))
 
 	// add book to the book shelf
 	s.BookShelf[book.BookType] = append(s.BookShelf[book.BookType], book)
-
 	return book, nil
 }
 

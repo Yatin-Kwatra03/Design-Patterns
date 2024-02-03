@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/epifi/gamma/pkg/logger"
 	"github.com/personal-projects/Design-Patterns/factory"
 )
 
 func main() {
-	fmt.Println("yeah")
 	bookStore, err := factory.NewBookStore("book-mehakma", "kaggadaspure", "919988221122", "gareebDiBooksLelo.com")
 	if err != nil {
-		logger.ErrorNoCtx("error while initialising a new book store")
+		fmt.Println("error while initialising a new book store : ", err)
 		return
 	}
 
@@ -20,7 +18,7 @@ func main() {
 		Price:    150,
 	})
 	if err != nil {
-		logger.ErrorNoCtx("error in creating book entity")
+		fmt.Println("error in creating book entity", createdBookEntity.Name)
 		return
 	}
 
@@ -30,7 +28,7 @@ func main() {
 		Price:    250,
 	})
 	if err != nil {
-		logger.ErrorNoCtx("error in creating book entity")
+		fmt.Println("error in creating book entity", createdBookEntity.Name)
 		return
 	}
 
@@ -38,8 +36,8 @@ func main() {
 
 	fetchedBooks, err := bookStore.GetBooksOfType(factory.BookType_BOOK_TYPE_BIOPIC)
 	if err != nil {
-		logger.ErrorNoCtx("error in fetching books of type biopic")
+		fmt.Println("error in fetching books of type biopic", err)
 		return
 	}
-	fmt.Println("fetched biopics from book store", fetchedBooks)
+	fmt.Println("fetched biopics from book store", fetchedBooks[0].Name, fetchedBooks[1].Name)
 }

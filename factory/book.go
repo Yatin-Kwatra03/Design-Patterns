@@ -21,6 +21,6 @@ const (
 	BookType_BOOK_TYPE_UNSPECIFIED BookType = 0
 	BookType_BOOK_TYPE_HISTORY     BookType = 1
 	BookType_BOOK_TYPE_PHILOSOPHY  BookType = 2
-	BookType_BOOK_TYPE_BIOPIC      BookType = 0
-	BookType_BOOK_TYPE_MYTHOLOGY   BookType = 0
+	BookType_BOOK_TYPE_BIOPIC      BookType = 3
+	BookType_BOOK_TYPE_MYTHOLOGY   BookType = 4
 )
