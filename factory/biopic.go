@@ -2,6 +2,8 @@ package factory
 
 type Biopic struct{}
 
+var _ Operations = &Biopic{}
+
 func NewBiopic() *Biopic {
 	return &Biopic{}
 }

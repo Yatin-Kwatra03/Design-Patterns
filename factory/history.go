@@ -2,6 +2,8 @@ package factory
 
 type History struct{}
 
+var _ Operations = &Biopic{}
+
 func NewHistory() *History {
 	return &History{}
 }
