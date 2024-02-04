@@ -1,16 +1,18 @@
 package factory
 
 type History struct {
-	id   string
-	name string
+	id    string
+	name  string
+	refNo string
 }
 
 var _ Book = &Biopic{}
 
 func NewHistory(name string) *History {
 	return &History{
-		id:   "345",
-		name: name,
+		id:    "345",
+		name:  name,
+		refNo: "978",
 	}
 }
 

@@ -1,16 +1,18 @@
 package factory
 
 type Biopic struct {
-	id   string
-	name string
+	id    string
+	name  string
+	refNo string
 }
 
 var _ Book = &Biopic{}
 
 func NewBiopic(name string) *Biopic {
 	return &Biopic{
-		id:   "1234",
-		name: name,
+		id:    "1234",
+		name:  name,
+		refNo: "687",
 	}
 }
 

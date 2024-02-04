@@ -1,8 +1,8 @@
 package factory
 
+// Book : Different services will implement these functions, which will be used by clients
+// to fetch the book info.
 type Book interface {
-	// GetBookName : each book category service will implement the book creation logic as
-	// per their need. But that logic should be abstracted from the client.
 	GetBookName() string
 	GetBookId() string
 }

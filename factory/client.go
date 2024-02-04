@@ -22,6 +22,13 @@ type Factory struct {
 // since we know anyone who implements the interface
 // can be initialized using the interface name.
 
+// Instead of creating Book object and return it to the client
+// we are returning the interface, because there can be some
+// info in the book which shouldn't be known to the client.
+// So we'll expose only those methods which are relevant to
+// the client and will give them the required info. Like in
+// our case BookName and BookId were the required fields, but
+// ref no was not.
 func (s *Factory) getRelevantImpln(mood string) Book {
 	if mood == "sporty" {
 		return s.biopic
