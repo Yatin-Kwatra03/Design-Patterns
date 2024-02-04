@@ -1,7 +1,6 @@
 package factory
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -22,17 +21,16 @@ type Factory struct {
 // We are taking example of mood here, but we
 // can have some set of parameters on the basis
 // of which we can decide the type of book
-// we need to generate.
+// we need to generate and we'll return the relevant
+// interface. The return type will be of Operations
+// since we know anyone who implements the interface
+// can be initialized using the interface name.
 
-func (s *Factory) GetBookOfType(mood string) (*Book, error) {
-	switch mood {
-	case "sporty":
-		return s.biopic.GetBook()
-	case "historic":
-		return s.history.GetBook()
-	default:
-		return nil, errors.New("client has gone crazy, we don't have a book for his mood")
+func (s *Factory) getRelevantImpln(mood string) Operations {
+	if mood == "sporty" {
+		return s.biopic
 	}
+	return s.history
 }
 
 func FactoryClientExecutionCode(mood string) {
@@ -42,7 +40,7 @@ func FactoryClientExecutionCode(mood string) {
 
 	fmt.Println(fmt.Sprintf("Get me a Book, I am in %s mood today", mood))
 
-	book, err := factoryService.GetBookOfType(mood)
+	book, err := factoryService.getRelevantImpln(mood).GetBook()
 	if err != nil {
 		fmt.Println(fmt.Errorf("error while fetching book for %s mood : %w", mood, err))
 		return
