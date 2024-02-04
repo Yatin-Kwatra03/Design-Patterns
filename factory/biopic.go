@@ -1,18 +1,23 @@
 package factory
 
-type Biopic struct{}
-
-var _ Operations = &Biopic{}
-
-func NewBiopic() *Biopic {
-	return &Biopic{}
+type Biopic struct {
+	id   string
+	name string
 }
 
-func (s *Biopic) GetBook() (*Book, error) {
-	return &Book{
-		Id:       "23",
-		Name:     "yatin dae basketball dae raaz",
-		BookType: BookType_BOOK_TYPE_BIOPIC,
-		Price:    12345,
-	}, nil
+var _ Book = &Biopic{}
+
+func NewBiopic(name string) *Biopic {
+	return &Biopic{
+		id:   "1234",
+		name: name,
+	}
+}
+
+func (s *Biopic) GetBookName() string {
+	return s.name
+}
+
+func (s *Biopic) GetBookId() string {
+	return s.id
 }

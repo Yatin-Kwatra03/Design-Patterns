@@ -1,18 +1,23 @@
 package factory
 
-type History struct{}
-
-var _ Operations = &Biopic{}
-
-func NewHistory() *History {
-	return &History{}
+type History struct {
+	id   string
+	name string
 }
 
-func (s *History) GetBook() (*Book, error) {
-	return &Book{
-		Id:       "23",
-		Name:     "yatin dae raaz",
-		BookType: BookType_BOOK_TYPE_HISTORY,
-		Price:    12345,
-	}, nil
+var _ Book = &Biopic{}
+
+func NewHistory(name string) *History {
+	return &History{
+		id:   "345",
+		name: name,
+	}
+}
+
+func (s *History) GetBookName() string {
+	return s.name
+}
+
+func (s *History) GetBookId() string {
+	return s.id
 }

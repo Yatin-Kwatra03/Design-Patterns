@@ -1,26 +1,8 @@
 package factory
 
-type Book struct {
-
-	// unique id that will be used to define a book uniquely
-	Id string
-
-	// book name
-	Name string
-
-	// type of book
-	BookType BookType
-
-	// price of the book
-	Price int32
+type Book interface {
+	// GetBookName : each book category service will implement the book creation logic as
+	// per their need. But that logic should be abstracted from the client.
+	GetBookName() string
+	GetBookId() string
 }
-
-type BookType int32
-
-const (
-	BookType_BOOK_TYPE_UNSPECIFIED BookType = 0
-	BookType_BOOK_TYPE_HISTORY     BookType = 1
-	BookType_BOOK_TYPE_PHILOSOPHY  BookType = 2
-	BookType_BOOK_TYPE_BIOPIC      BookType = 3
-	BookType_BOOK_TYPE_MYTHOLOGY   BookType = 4
-)
