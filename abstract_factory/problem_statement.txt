@@ -1,0 +1,27 @@
+There is an FPL league going on in our company. There are different sports competitions being organized. In any sport, a player will go in Auction.
+Each player will be categorised as a Noob player / Pro player.
+
+
+So build a system, which allows an employee to take part in auction for a sport with the levels (Noob / Experienced).
+
+
+
+
+Abstract Factory Pattern notes:
+
+So it is used when you need to return a family of related products. Let's say a product has multiple implementations.
+but each product is compatible with only some implementations. So abstract factory will return the group of those
+compatible implementations based on some parameters.
+
+Each factory should has its own implementation for productA and productB. because those 2 will be compatible
+wiht each other.
+
+In a nutshell, abstract factory method provides interface to create families of related objects without specifying
+its concrete implementation.
+
+
+In our case noob player of basketball is only compatible with experienced player of basketball and not with any (noob / experienced)
+player of football
+
+
+
