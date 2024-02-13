@@ -5,13 +5,14 @@ import (
 	"github.com/personal-projects/Design-Patterns/abstract_factory"
 	"github.com/personal-projects/Design-Patterns/brute_force"
 	"github.com/personal-projects/Design-Patterns/factory"
+	"github.com/personal-projects/Design-Patterns/singleton"
 )
 
 func main() {
 	//bruteForceImplementation()
 	//factoryMethodImplementation()
-	abstractFactoryMethodImplementation()
-
+	//abstractFactoryMethodImplementation()
+	singletonPatternImplementation()
 }
 
 func bruteForceImplementation() {
@@ -34,4 +35,16 @@ func abstractFactoryMethodImplementation() {
 
 	players = abstract_factory.ParticipateAsPerTheSportsSkill("badminton")
 	fmt.Println("need players for badminton : ", players.NoobPlayer.GetNoobPlayer(), ", ", players.ExperiencedPlayer.GetExperiencedPlayer())
+}
+
+func singletonPatternImplementation() {
+	// It will be used to check the no of instances created for the singleton class
+	singleton.InstanceNo = 0
+
+	singletonInstance := singleton.GetCricketTeamInstance()
+	fmt.Println(fmt.Sprintf("Instance creation attempt 1 result : %s , instanceNo : %v", singletonInstance.Name, singleton.InstanceNo))
+
+	singletonInstance = singleton.GetCricketTeamInstance()
+	fmt.Println(fmt.Sprintf("Instance creation attempt 2 result : %s , instanceNo : %v", singletonInstance.Name, singleton.InstanceNo))
+
 }

@@ -1,0 +1,2 @@
+There is only 1 international cricket team of the country. no matter the people in that team keep changing. So
+we'll implement this behaviour to create team using singleton design pattern.
