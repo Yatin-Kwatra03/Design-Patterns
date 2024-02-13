@@ -1,0 +1,51 @@
+Singleton pattern: ensure a class has only one instance and provides a global access to it.
+
+i.e. If we have a class, then singleton pattern helps you to make that class instantiate only once.
+whenever anyone you want an instance, same instance will be used.
+
+Cons:
+Biggest con is whenever u make something public / global, you lose your control over it. Anyone can just
+change it. Normally we want scope functions and variables which is clearly not going to be the case here.
+
+
+Assumption:
+So singleton will be used when we are 100 %  sure, we will only need one instance of this class in the future.
+We make the chat class singleton with single point of access in the program.
+Which is normally never the case. Since we don't know and future is very unpredictable.
+
+So better not to make any such assumption.
+
+E.g. There is a chat application and chatroom is a singleton, since we always needs to come to same chatroom.
+But now our app grows, we need to have multiple chatrooms, but singleton won't let u do that.
+
+Wise words:
+
+There is a saying:
+One man's constant is another man's variable. Unit testing is especially difficult with the singleton pattern.
+We want to mock some methods of the class, so we need a instance of the class but having a single instance
+it becomes difficult to handle.
+
+
+
+It is fine to have a single global instance of a class and use it. But its not good to make impossible to
+make another instance of it. Singleton pattern exactly does that.
+
+
+
+Implementation details:
+
+So in a singleton class, constructor is made private, so people from the outside cannot access / create a new instance
+of it.
+
+Only singleton's can create singleton. But wait ?  how to create the first singleton?
+Ans: static methods can instantiate the first singleton class. Since static method is under the namespace of the class and
+can be directly called without any instance of the class. It has access to the private constructor of it.
+
+
+One such case where we might consider using singleton would be database or file. Where you want
+single instance of a resource.
+
+
+
+Ideally you can't really control this scenario in go. There is no concept of static methods as such. A method of class
+can be called using an instance of it only.
