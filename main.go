@@ -41,10 +41,13 @@ func singletonPatternImplementation() {
 	// It will be used to check the no of instances created for the singleton class
 	singleton.InstanceNo = 0
 
-	singletonInstance := singleton.GetCricketTeamInstance()
-	fmt.Println(fmt.Sprintf("Instance creation attempt 1 result : %s , instanceNo : %v", singletonInstance.Name, singleton.InstanceNo))
+	singletonInstance1 := singleton.GetCricketTeamInstance()
+	fmt.Println(fmt.Sprintf("Instance creation attempt 1 result : %s , instanceNo : %v", singletonInstance1.Name, singleton.InstanceNo))
 
-	singletonInstance = singleton.GetCricketTeamInstance()
-	fmt.Println(fmt.Sprintf("Instance creation attempt 2 result : %s , instanceNo : %v", singletonInstance.Name, singleton.InstanceNo))
+	singletonInstance2 := singleton.GetCricketTeamInstance()
+	fmt.Println(fmt.Sprintf("Instance creation attempt 2 result : %s , instanceNo : %v", singletonInstance2.Name, singleton.InstanceNo))
+
+	// using the old instance to show that it is instantiated only once
+	fmt.Println(fmt.Sprintf("Instance creation attempt 3 result : %s , instanceNo : %v", singletonInstance1.Name, singleton.InstanceNo))
 
 }
