@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/personal-projects/Design-Patterns/abstract_factory"
 	"github.com/personal-projects/Design-Patterns/brute_force"
+	"github.com/personal-projects/Design-Patterns/builder_pattern"
 	"github.com/personal-projects/Design-Patterns/factory"
 	"github.com/personal-projects/Design-Patterns/singleton"
 )
@@ -12,7 +13,8 @@ func main() {
 	//bruteForceImplementation()
 	//factoryMethodImplementation()
 	//abstractFactoryMethodImplementation()
-	singletonPatternImplementation()
+	//singletonPatternImplementation()
+	builderPatternImplementation()
 }
 
 func bruteForceImplementation() {
@@ -49,4 +51,10 @@ func singletonPatternImplementation() {
 
 	// using the old instance to show that it is instantiated only once
 	fmt.Println(fmt.Sprintf("Instance creation attempt 3 result : %s , instanceNo : %v", singletonInstance1.Name, singleton.InstanceNo))
+}
+
+func builderPatternImplementation() {
+	fmt.Println(builder_pattern.GharBanwaloKendar("yatin jaisa"))
+	fmt.Println(builder_pattern.GharBanwaloKendar("harleen jaisa"))
+	fmt.Println(builder_pattern.MrjiKaGhar())
 }

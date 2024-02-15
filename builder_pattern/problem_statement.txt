@@ -1,0 +1,7 @@
+We need to create houses of different types
+doors can be [1,2]
+roof_top can be [flat, pointy]
+floors [1,2]
+
+
+Implement this functionality using builder pattern
