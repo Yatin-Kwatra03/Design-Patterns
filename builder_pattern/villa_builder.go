@@ -21,16 +21,16 @@ func NewVillaBuilder() *VillaBuilder {
 // compile time safety check
 var _ houseBuilder = &VillaBuilder{}
 
-func (builder *VillaBuilder) setDoors(doors int) {
-	builder.doors = doors
+func (builder *VillaBuilder) setDoors() {
+	builder.doors = 1
 }
 
-func (builder *VillaBuilder) setRoof(roofType string) {
-	builder.roofType = roofType
+func (builder *VillaBuilder) setRoof() {
+	builder.roofType = "Teekhi"
 }
 
-func (builder *VillaBuilder) setFloors(floors int) {
-	builder.floors = floors
+func (builder *VillaBuilder) setFloors() {
+	builder.floors = 3
 }
 
 func (builder *VillaBuilder) getDoors() int {

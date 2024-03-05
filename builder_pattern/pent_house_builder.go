@@ -16,16 +16,16 @@ func NewPentHouseBuilder() *PentHouseBuilder {
 // compile time safety check
 var _ houseBuilder = &PentHouseBuilder{}
 
-func (builder *PentHouseBuilder) setDoors(doors int) {
-	builder.doors = doors
+func (builder *PentHouseBuilder) setDoors() {
+	builder.doors = 2
 }
 
-func (builder *PentHouseBuilder) setRoof(roofType string) {
-	builder.roofType = roofType
+func (builder *PentHouseBuilder) setRoof() {
+	builder.roofType = "sidhi"
 }
 
-func (builder *PentHouseBuilder) setFloors(floors int) {
-	builder.floors = floors
+func (builder *PentHouseBuilder) setFloors() {
+	builder.floors = 3
 }
 
 func (builder *PentHouseBuilder) getDoors() int {

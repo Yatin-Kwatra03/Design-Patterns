@@ -7,22 +7,19 @@ package builder_pattern
 // todo: should director also implement the builder interface which
 // allows the client to build House of his own choice ?
 // solve: client can directly make that house using builder.
-type director struct{}
-
-func NewDirector() *director {
-	return &director{}
+type director struct {
+	houseBuilder houseBuilder
 }
 
-func (director *director) buildVilla(villaBuilder *VillaBuilder) *House {
-	villaBuilder.setDoors(1)
-	villaBuilder.setFloors(1)
-	villaBuilder.setRoof("Teekhi")
-	return villaBuilder.buildHouse()
+func NewDirector(houseBuilder houseBuilder) *director {
+	return &director{
+		houseBuilder: houseBuilder,
+	}
 }
 
-func (director *director) buildPentHouse(pentHouseBuilder *PentHouseBuilder) *House {
-	pentHouseBuilder.setDoors(2)
-	pentHouseBuilder.setFloors(2)
-	pentHouseBuilder.setRoof("Sidhi")
-	return pentHouseBuilder.buildHouse()
+func (director *director) GetHouse() *House {
+	director.houseBuilder.setFloors()
+	director.houseBuilder.setRoof()
+	director.houseBuilder.setDoors()
+	return director.houseBuilder.buildHouse()
 }
