@@ -13,9 +13,9 @@ func GharBanwaloKendar(houseType string) *House {
 
 // MrjiKaGhar : doesn't uses Director concept at all
 func MrjiKaGhar() *House {
-	concreteBuilder1 := NewVillaBuilder()
-	concreteBuilder1.setFloors(10)
-	concreteBuilder1.setRoof("boht uchi")
-	concreteBuilder1.setDoors(10)
-	return concreteBuilder1.buildHouse()
+	villaBuilder := NewVillaBuilder()
+	villaBuilder.setFloors(10)
+	villaBuilder.setRoof("boht uchi")
+	villaBuilder.setDoors(10)
+	return villaBuilder.buildHouse()
 }
