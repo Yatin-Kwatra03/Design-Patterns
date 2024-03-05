@@ -18,6 +18,9 @@ func NewVillaBuilder() *VillaBuilder {
 	return &VillaBuilder{}
 }
 
+// compile time safety check
+var _ houseBuilder = &VillaBuilder{}
+
 func (builder *VillaBuilder) setDoors(doors int) {
 	builder.doors = doors
 }

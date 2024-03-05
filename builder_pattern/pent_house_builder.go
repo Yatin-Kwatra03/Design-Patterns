@@ -13,6 +13,9 @@ func NewPentHouseBuilder() *PentHouseBuilder {
 	return &PentHouseBuilder{}
 }
 
+// compile time safety check
+var _ houseBuilder = &PentHouseBuilder{}
+
 func (builder *PentHouseBuilder) setDoors(doors int) {
 	builder.doors = doors
 }
