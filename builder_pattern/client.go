@@ -4,16 +4,16 @@ func GharBanwaloKendar(houseType string) *House {
 	director := NewDirector()
 
 	if houseType == "yatin jaisa" {
-		concreteBuilder1 := NewConcreteBuilder1()
-		return director.buildHouse1(concreteBuilder1)
+		villaBuilder := NewVillaBuilder()
+		return director.buildVilla(villaBuilder)
 	}
-	concreteBuilder2 := NewConcreteBuilder2()
-	return director.buildHouse2(concreteBuilder2)
+	pentHouseBuilder := NewPentHouseBuilder()
+	return director.buildPentHouse(pentHouseBuilder)
 }
 
 // MrjiKaGhar : doesn't uses Director concept at all
 func MrjiKaGhar() *House {
-	concreteBuilder1 := NewConcreteBuilder1()
+	concreteBuilder1 := NewVillaBuilder()
 	concreteBuilder1.setFloors(10)
 	concreteBuilder1.setRoof("boht uchi")
 	concreteBuilder1.setDoors(10)

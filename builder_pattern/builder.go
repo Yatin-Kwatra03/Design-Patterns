@@ -1,6 +1,8 @@
 package builder_pattern
 
-type builder interface {
+// houseBuilder contains all the methods using which
+// client can access the components of the house.
+type houseBuilder interface {
 	setDoors(doors int)
 	setRoof(roofType string)
 	setFloors(floors int)

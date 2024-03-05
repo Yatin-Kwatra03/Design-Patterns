@@ -13,16 +13,16 @@ func NewDirector() *director {
 	return &director{}
 }
 
-func (director *director) buildHouse1(concreteBuilder1 *ConcreteBuilder1) *House {
-	concreteBuilder1.setDoors(1)
-	concreteBuilder1.setFloors(1)
-	concreteBuilder1.setRoof("Teekhi")
-	return concreteBuilder1.buildHouse()
+func (director *director) buildVilla(villaBuilder *VillaBuilder) *House {
+	villaBuilder.setDoors(1)
+	villaBuilder.setFloors(1)
+	villaBuilder.setRoof("Teekhi")
+	return villaBuilder.buildHouse()
 }
 
-func (director *director) buildHouse2(concreteBuilder2 *ConcreteBuilder2) *House {
-	concreteBuilder2.setDoors(2)
-	concreteBuilder2.setFloors(2)
-	concreteBuilder2.setRoof("Sidhi")
-	return concreteBuilder2.buildHouse()
+func (director *director) buildPentHouse(pentHouseBuilder *PentHouseBuilder) *House {
+	pentHouseBuilder.setDoors(2)
+	pentHouseBuilder.setFloors(2)
+	pentHouseBuilder.setRoof("Sidhi")
+	return pentHouseBuilder.buildHouse()
 }
