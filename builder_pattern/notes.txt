@@ -1,0 +1,24 @@
+It is used to build systems which has a lot of components.
+
+E.g. A car has a lot of components like engine, brakes, fuel mechanism etc. All these come together to make a car.
+
+Let's say we are building a computer. We will need a lot of parts in it. E.g. Processor, ram, mouse etc.
+
+It could be a simple computer or laptop. They have a lot of different disjoint features.
+
+Having a common constructor which takes parameters to instantiates the object is difficult, because there can be some features which
+are relevant to laptop but not to computer like touch screen feature. So are we going to write different constructors which takes
+different parameters, so instead builder pattern helps u to make ur code clean, structured and readable in such cases.
+
+So builder pattern moves the construction logic from client to builders.
+So we'll make the building logic simplified for the client.
+
+
+Builder class has the logic to build the house with the client requirements.
+Director class manages the builders which will enable client to create a popular house (house with known properties)
+In that case client won't need to see each parameter one by one
+
+
+So popular house has its defined properties. So we can say there can multiple builders which build the
+house in their own way. So there can different implementations of builder methods. So we'll make builder methods as interface
+And builders will have their own concrete implementations
