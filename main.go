@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/personal-projects/Design-Patterns/abstract_factory"
 	"github.com/personal-projects/Design-Patterns/brute_force"
 	"github.com/personal-projects/Design-Patterns/builder_pattern"
+	"github.com/personal-projects/Design-Patterns/chain_of_responsibility"
 	"github.com/personal-projects/Design-Patterns/factory"
 	"github.com/personal-projects/Design-Patterns/singleton"
 )
@@ -14,7 +16,8 @@ func main() {
 	//factoryMethodImplementation()
 	//abstractFactoryMethodImplementation()
 	//singletonPatternImplementation()
-	builderPatternImplementation()
+	//builderPatternImplementation()
+	chainOfResponsibilitiesImplementation()
 }
 
 func bruteForceImplementation() {
@@ -56,4 +59,16 @@ func singletonPatternImplementation() {
 func builderPatternImplementation() {
 	builder_pattern.GharBanwaloKendar()
 	fmt.Println(builder_pattern.MrjiKaGhar())
+}
+
+func chainOfResponsibilitiesImplementation() {
+	fmt.Println("complain regarding login issue : ",
+		chain_of_responsibility.ProcessCustomerRequest("login issue"),
+	)
+	fmt.Println("complain regarding money debited but not credited issue : ",
+		chain_of_responsibility.ProcessCustomerRequest("money debited but not credited issue"),
+	)
+	fmt.Println("complain regarding home screen not loading : ",
+		chain_of_responsibility.ProcessCustomerRequest("home screen not loading"),
+	)
 }
