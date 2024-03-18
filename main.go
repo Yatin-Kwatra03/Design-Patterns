@@ -54,7 +54,6 @@ func singletonPatternImplementation() {
 }
 
 func builderPatternImplementation() {
-	fmt.Println(builder_pattern.GharBanwaloKendar("yatin jaisa"))
-	fmt.Println(builder_pattern.GharBanwaloKendar("harleen jaisa"))
+	builder_pattern.GharBanwaloKendar()
 	fmt.Println(builder_pattern.MrjiKaGhar())
 }

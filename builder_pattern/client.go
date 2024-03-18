@@ -1,10 +1,15 @@
 package builder_pattern
 
-func GharBanwaloKendar(houseType string) *House {
+import "fmt"
 
-	houseBuilder := getRelevantHouseBuilder(houseType)
-	director := NewDirector(houseBuilder)
-	return director.GetHouse()
+func GharBanwaloKendar() {
+
+	houseBuilder1 := getRelevantHouseBuilder("yatin jaisa")
+	director := NewDirector(houseBuilder1)
+	fmt.Println(director.GetHouse())
+	houseBuilder2 := getRelevantHouseBuilder("harleen jaisa")
+	director.updateBuilder(houseBuilder2)
+	fmt.Println(director.GetHouse())
 }
 
 // MrjiKaGhar : doesn't use Director concept at all

@@ -23,3 +23,7 @@ func (director *director) GetHouse() *House {
 	director.houseBuilder.setDoors()
 	return director.houseBuilder.buildHouse()
 }
+
+func (director *director) updateBuilder(builder houseBuilder) {
+	director.houseBuilder = builder
+}
