@@ -8,6 +8,7 @@ import (
 	"github.com/personal-projects/Design-Patterns/builder_pattern"
 	"github.com/personal-projects/Design-Patterns/chain_of_responsibility"
 	"github.com/personal-projects/Design-Patterns/factory"
+	"github.com/personal-projects/Design-Patterns/prototype"
 	"github.com/personal-projects/Design-Patterns/singleton"
 )
 
@@ -17,7 +18,8 @@ func main() {
 	//abstractFactoryMethodImplementation()
 	//singletonPatternImplementation()
 	//builderPatternImplementation()
-	chainOfResponsibilitiesImplementation()
+	//chainOfResponsibilitiesImplementation()
+	prototypeImplementation()
 }
 
 func bruteForceImplementation() {
@@ -90,4 +92,8 @@ func chainOfResponsibilitiesImplementation() {
 		fmt.Println("complain regarding balance not updated : ", sol)
 	}
 
+}
+
+func prototypeImplementation() {
+	prototype.GeneratePrototypeForSoftwareEngineer()
 }

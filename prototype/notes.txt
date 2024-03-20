@@ -1,0 +1,17 @@
+prototype is a creational design patter also known as clone.
+
+It helps us to copy existing objects without making our code dependent
+on their classes.
+
+The idea is to copy existing objects rather than creating a new instance from scratch.
+The existing objects acts as a prototype
+
+Prototype mainly has 3 components
+1. prototype : object to be copied / cloned
+2. prototype registry : places where we kept all the prototype
+3. client: class which wants the clone
+
+why ?
+prototype patterns are required since object creation is expensive and time consuming so we creating
+objects using the existing objects itself.
+
