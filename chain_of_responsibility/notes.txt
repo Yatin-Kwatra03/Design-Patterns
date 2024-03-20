@@ -1,0 +1,35 @@
+Chain Of Responsibility:
+
+Problem statement:
+
+It is used when u want to perform a lot of checks in the system, where result
+of one check decides whether to proceed with next one or not.
+
+
+Each component needs to decide first, whether to perform the check of pass it to the
+next component.
+
+Adding checks randomly as per need can make the code really messy, bloated and hard to maintain.
+Chaning one check can affect the others and becomes hard to reuse the component which leads to
+code duplication.
+
+so chain of responsibility really helps in such scenarios.
+
+Key Logic:
+
+So in this pattern, each check should be performed under one class represented by a handler.
+Each handler stores some authentication logic and reference to the next handler.
+
+Each handler will process the request and evaluates as per its logic and decide whether to
+pass it to the next handler or drop it then and there.
+
+In an online ordering system, each handler will be authenticate the request and if it
+contains the right data, it'll pass the request to the next handler.
+
+The same request travels across the chain of handlers.
+
+
+E.g.
+For example in UI flows, on click of a button, request keeps flowing down to multiple
+GUI elements until we find one component that can process it. This is one of the example of
+Chain of Responsibility.
