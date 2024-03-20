@@ -3,12 +3,15 @@ package chain_of_responsibility
 // ProcessCustomerRequest : externally exposed
 // method for top layer to trigger complain
 // processing flows based on some paramters
-func ProcessCustomerRequest(complainType string) string {
-	handler1 := newChatbotSupport()
-	handler2 := newCxExecutive()
-	handler3 := newTechSupport()
-	handler1.setNext(handler2)
-	handler2.setNext(handler3)
+func ProcessCustomerRequest(complainType string) (string, error) {
+	handlers := make([]baseHandler, 0)
+	handlers = append(handlers, newChatbotSupport())
+	handlers = append(handlers, newCxExecutive())
+	handlers = append(handlers, newTechSupport())
 
-	return handler1.handle(&customerRequest{complainType: complainType})
+	for idx := 0; idx < len(handlers)-1; idx++ {
+		handlers[idx].setNext(handlers[idx+1])
+	}
+
+	return handlers[0].handle(&customerRequest{complainType: complainType})
 }

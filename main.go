@@ -62,13 +62,32 @@ func builderPatternImplementation() {
 }
 
 func chainOfResponsibilitiesImplementation() {
-	fmt.Println("complain regarding login issue : ",
-		chain_of_responsibility.ProcessCustomerRequest("login issue"),
-	)
-	fmt.Println("complain regarding money debited but not credited issue : ",
-		chain_of_responsibility.ProcessCustomerRequest("money debited but not credited issue"),
-	)
-	fmt.Println("complain regarding home screen not loading : ",
-		chain_of_responsibility.ProcessCustomerRequest("home screen not loading"),
-	)
+	sol, err := chain_of_responsibility.ProcessCustomerRequest("login issue")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("complain regarding login issue : ", sol)
+	}
+
+	sol, err = chain_of_responsibility.ProcessCustomerRequest("money debited but not credited issue")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("complain regarding money debited but not credited issue : ", sol)
+	}
+
+	sol, err = chain_of_responsibility.ProcessCustomerRequest("home screen not loading")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("complain regarding home screen not loading : ", sol)
+	}
+
+	sol, err = chain_of_responsibility.ProcessCustomerRequest("balance not updated")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("complain regarding balance not updated : ", sol)
+	}
+
 }

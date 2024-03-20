@@ -5,6 +5,6 @@ package chain_of_responsibility
 // the request and store reference
 // to the next handler (if required)
 type baseHandler interface {
-	handle(req *customerRequest) string
+	handle(req *customerRequest) (string, error)
 	setNext(handler baseHandler)
 }
