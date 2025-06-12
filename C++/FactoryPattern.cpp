@@ -1,6 +1,5 @@
-include<iostream>
+#include<iostream>
 using namespace std;
-
 
 enum class ShapeType {
 	DEFAULT,
@@ -11,6 +10,7 @@ enum class ShapeType {
 class figureFeatures {
 public:
 	virtual void showShape() = 0;
+	virtual ~figureFeatures() = default; // to avoid memory leak, since c++ doesn't have an inbuilt garbage collector
 };
 
 class Circle: public figureFeatures {
@@ -55,4 +55,6 @@ int main() {
 	auto relevantImplementation = getFactoryImplementation(requiredShape);
 	if (relevantImplementation != NULL) relevantImplementation->showShape();
 	else cout << "DAMN\n";
+
+	delete(relevantImplementation);
 }
