@@ -264,7 +264,7 @@ public:
 class ClientApiFactory {
 public:
 
-	ClientApi* getClientApi(ApiTier apiTier) {
+	static ClientApi* getClientApi(ApiTier apiTier) {
 		switch (apiTier) {
 		case ApiTier::TIER1:
 			return new Tier1Api();
@@ -332,8 +332,7 @@ int main() {
 
 	instance->RegisterApiForRateLimiting(serverApi, limit);
 
-	ClientApiFactory* clientApiFactory = new ClientApiFactory();
-	ClientApi* clientApiStrategy = clientApiFactory->getClientApi(ApiTier::TIER1);
+	ClientApi* clientApiStrategy = ClientApiFactory::getClientApi(ApiTier::TIER1);
 	instance->setStrategy(clientApiStrategy);
 
 
@@ -355,7 +354,7 @@ int main() {
 
 	// try creating new instance and still it should fail
 	tme++;
-	clientApiStrategy = clientApiFactory->getClientApi(ApiTier::TIER1);
+	clientApiStrategy = ClientApiFactory::getClientApi(ApiTier::TIER1);
 	instance->setStrategy(clientApiStrategy);
 	instance->executeStrategy(serverApi);
 
@@ -366,3 +365,5 @@ int main() {
 	instance->executeStrategy(serverApi);
 
 }
+
+// TODO - There is further scope of improvement, we should had applied the strategy for the different rate limiting algorithms.
